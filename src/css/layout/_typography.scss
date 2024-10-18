@@ -1,0 +1,97 @@
+body {
+    @extend .text-default;
+}
+
+.text-default {
+    @include responsive-font-size(14px, 18px, 1280px, 1920px);
+    line-height: 1.33;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+}
+
+h1,
+.h1 {
+    letter-spacing: -0.065em;
+    font-weight: 700;
+    line-height: 1.048;
+    @include responsive-font-size(62px, 84px, 1280px, 1920px);
+    text-transform: uppercase;
+
+    @media screen and (max-width: 767px) {
+        @include responsive-font-size(40px, 62px, 360px, 768px);
+    }
+}
+
+h2,
+.h2 {
+    font-weight: 700;
+    letter-spacing: -0.065em;
+    line-height: 1.048;
+    text-transform: uppercase;
+    @include responsive-font-size(62px, 84px, 1280px, 1920px);
+    position: relative;
+    left: -0.07em;
+
+    @media screen and (max-width: 767px) {
+        @include responsive-font-size(36px, 72px, 375px, 768px);
+    }
+}
+
+h3,
+.h3 {
+    font-weight: 700;
+    letter-spacing: -0.065em;
+    line-height: 1;
+    @include responsive-font-size(44px, 64px, 1280px, 1920px);
+
+    @media screen and (max-width: 767px) {
+        font-size: 40px;
+    }
+
+    @media screen and (max-width: 420px) {
+        font-size: 38px;
+    }
+}
+
+h4,
+.h4 {
+    font-weight: 700;
+    letter-spacing: -0.065em;
+    line-height: 1;
+    @include responsive-font-size(28px, 40px, 1280px, 1920px);
+}
+
+.text-button {
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+
+    @media screen and (max-width: 1366px) {
+        font-size: 12px;
+    }
+}
+
+.text-s {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: -0.05em;
+
+    @media screen and (max-width: 1366px) {
+        font-size: 12px;
+    }
+}
+
+.text-xs {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: -0.03em;
+
+    @media screen and (max-width: 1366px) {
+        font-size: 10px;
+    }
+}

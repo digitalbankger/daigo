@@ -1,0 +1,33 @@
+.ul {
+    @extend .list-unstyled;
+
+    > li {
+        position: relative;
+        padding-left: 16px;
+
+        @include mobile {
+            padding-left: 14px;
+        }
+
+        &::before {
+            content: '';
+            border-radius: 50%;
+            background-color: $brown;
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            top: 0.6em;
+            left: 0;
+            transform: translate(0, -50%);
+
+            @include mobile {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+    }
+}

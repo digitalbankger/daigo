@@ -1,0 +1,26 @@
+.ads-popup__title {
+    max-width: 395px;
+
+    @media screen and (max-width: 1366px) {
+        max-width: 332px;
+    }
+
+    @include tablet {
+        max-width: 275px;
+    }
+}
+
+.ads-popup-text {
+    max-width: 467px;
+    text-wrap: balance;
+}
+
+.ads-popup-text__primary {
+    @include responsive-font-size(18px, 24px, 1280px, 1920px);
+    font-weight: 700;
+    letter-spacing: -0.065em;
+
+    &:not(:last-child) {
+        margin-bottom: 16px;
+    }
+}

@@ -1,0 +1,112 @@
+.all-reviews-popup__title {
+    margin-bottom: 52px;
+
+    @media screen and (max-width: 1366px) {
+        margin-bottom: 27px;
+    }
+}
+
+.all-reviews-filter {
+    margin-bottom: 78px;
+
+    @media screen and (max-width: 1366px) {
+        margin-bottom: 38px;
+    }
+
+    @include tablet {
+        margin-bottom: 23px;
+    }
+
+    @include mobile {
+        margin-bottom: 0;
+    }
+
+    &.reviews-filter {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.all-reviews-popup__reviews-list__item {
+    &:not(:last-child) {
+        border-bottom: 1px solid $beige;
+    }
+}
+
+.all-reviews-popup__review {
+    padding-top: 39px;
+    padding-bottom: 27px;
+
+    @media screen and (max-width: 1366px) {
+        padding-top: 30px;
+        padding-bottom: 32px;
+    }
+}
+
+.all-reviews-popup__review-top {
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-gap: 0px 30px;
+    text-transform: uppercase;
+
+    @include mobile {
+        grid-gap: 0px 20px;
+        grid-template-columns: auto 1fr;
+        margin-bottom: 20px;
+    }
+}
+
+.all-reviews-popup__review-main {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-gap: 59px 30px;
+    grid-template-areas: '. content' 'avatar content';
+
+    @include mobile {
+        grid-template-columns: auto 1fr;
+        grid-gap: 42px 20px;
+        grid-template-areas: 'avatar content' '. content';
+    }
+}
+
+.all-reviews-popup__review-avatar {
+    --size: 88px;
+    border-radius: 50%;
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+    grid-area: avatar;
+
+    @media screen and (max-width: 1366px) {
+        --size: 54px;
+    }
+}
+
+.all-reviews-popup__review-content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 59px;
+
+    @include mobile {
+        gap: 42px;
+    }
+}
+
+.all-reviews-popup__review-content-text {
+    --max-rows: 8;
+    transition: height 0.4s $app-default-easing;
+    height: var(--collapsed-height, auto);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--max-rows);
+    line-clamp: var(--max-rows);
+    overflow: hidden;
+
+    &.is-expanded {
+        display: block;
+        height: var(--height, auto);
+    }
+}

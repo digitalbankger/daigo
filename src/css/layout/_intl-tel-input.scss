@@ -1,0 +1,22 @@
+.iti {
+    width: 100%;
+
+    .form-control {
+        padding-left: 50px;
+    }
+}
+
+.iti__country-list {
+    @include scrollbar($track-color: transparent);
+    border-radius: 8px;
+    top: calc(100% + 5px);
+
+    @media screen and (max-width: 576px) {
+        min-width: calc(100vw - var(--offset-x) * 2);
+    }
+}
+
+.iti__country-name,
+.iti__dial-code {
+    font-size: 16px;
+}

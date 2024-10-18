@@ -1,0 +1,11 @@
+.research-popup {
+    .popup-container {
+        display: flex;
+        flex-direction: column;
+        gap: 78px;
+    }
+}
+
+.publications-popup__text {
+    max-width: 680px;
+}

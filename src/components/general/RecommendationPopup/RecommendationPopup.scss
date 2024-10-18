@@ -1,0 +1,129 @@
+.recommendation-popup {
+    .popup-container {
+        display: flex;
+        flex-direction: column;
+        gap: 105px;
+
+        @media screen and (max-width: 1680px) {
+            gap: 75px;
+        }
+
+        @media screen and (max-width: 1366px) {
+            gap: 50px;
+        }
+
+        @media screen and (max-width: 767px) {
+            gap: 109px;
+        }
+    }
+}
+
+.recommendation-popup__title {
+    width: min-content;
+}
+
+.recommendation-popup__bottom {
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.recommendation-popup__counter {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    @media screen and (max-width: 480px) {
+        margin-right: auto;
+    }
+}
+
+.recommendation-popup__counter-el {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.recommendation-popup__counter-el-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+
+    &:not(:last-child) {
+        &::after {
+            content: '—';
+        }
+    }
+}
+
+.recommendation-popup-el__nav-btn {
+    @include clickable();
+    transition: opacity $app-default-duration $app-default-easing;
+
+    @include hover {
+        opacity: 0.7;
+    }
+}
+
+.recommendation-popup-el__nav-btn--prev {
+    transform: rotate(180deg);
+}
+
+.recommendation-popup-review-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 351px;
+
+    @media screen and (max-width: 1366px) {
+        width: 245px;
+    }
+
+    @include vertical-tablet {
+        width: 312px;
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 255px;
+    }
+}
+
+.recommendation-popup-review-responsive {
+    --aspect-ratio: calc(351 / 432);
+}
+
+.recommendation-popup-review {
+    img {
+        border-radius: 32px;
+
+        @media screen and (max-width: 1366px) {
+            border-radius: 24px;
+        }
+    }
+}
+
+.recommendation-popup-review__icon {
+    --size: 50px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    color: #fff;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 1366px) {
+        --size: 30px;
+    }
+}

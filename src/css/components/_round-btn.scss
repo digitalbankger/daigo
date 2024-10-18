@@ -1,0 +1,33 @@
+.round-btn {
+    --size: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity $app-default-duration $app-default-easing;
+    width: var(--size);
+    height: var(--size);
+    padding: calc(0.25 * var(--size));
+
+    @include tablet {
+        --size: 40px;
+    }
+
+    @include hover {
+        opacity: 0.5;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+
+        [fill]:not([fill='none']) {
+            fill: currentColor;
+        }
+
+        [stroke]:not([stroke='none']) {
+            stroke: currentColor;
+        }
+    }
+}

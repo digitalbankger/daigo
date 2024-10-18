@@ -1,0 +1,21 @@
+@keyframes parallax {
+    0% {
+        transform: scale(var(--parallax-scale, 1))
+            translate3d(var(--parallax-x-from, 0px), var(--parallax-y-from, 0px), 0);
+    }
+
+    100% {
+        transform: scale(var(--parallax-scale, 1)) translate3d(var(--parallax-x-to, 0px), var(--parallax-y-to, 0px), 0);
+    }
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translate3d(0, -5%, 0);
+    }
+
+    50% {
+        transform: translate3d(0, 5%, 0);
+    }
+}

@@ -1,0 +1,15 @@
+.publications-popup {
+    .popup-container {
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+
+        @include mobile {
+            gap: 40px;
+        }
+    }
+}
+
+.publications-popup__img {
+    width: 100%;
+}

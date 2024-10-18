@@ -1,0 +1,12 @@
+.collapse {
+    --collapse-duration: 0.5s;
+    --collapse-easing: easeOutQuart;
+    --min-visible-height: 0px;
+    display: block;
+    width: 100%;
+}
+
+.collapse__content {
+    transition: height var(--collapse-duration) var(--collapse-easing);
+    overflow: hidden;
+}

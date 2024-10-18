@@ -1,0 +1,118 @@
+.product-popup {
+    .popup-container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        @media screen and (max-width: 850px) {
+            gap: 111px;
+        }
+
+        @media screen and (max-width: 767px) {
+            gap: 72px;
+        }
+    }
+}
+
+.product-popup-top {
+    max-width: 450px;
+}
+
+.product-popup__type {
+    margin-bottom: 19px;
+
+    @media screen and (max-width: 1366px) {
+        margin-bottom: 11px;
+    }
+}
+
+.product-popup__name {
+    margin-left: -0.07em;
+
+    &:not(:last-child) {
+        margin-bottom: 50px;
+
+        @media screen and (max-width: 1366px) {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.product-popup__text {
+    &:not(:last-child) {
+        margin-bottom: 64px;
+
+        @media screen and (max-width: 1366px) {
+            margin-bottom: 42px;
+        }
+
+        @media screen and (max-width: 767px) {
+            margin-bottom: 38px;
+        }
+    }
+}
+
+.ad-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.product-popup-bottom {
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+
+    @media screen and (max-width: 850px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.product-popup-recommendation {
+    @media screen and (max-width: 850px) {
+        margin-top: 142px;
+    }
+
+    @media screen and (max-width: 767px) {
+        margin-top: 77px;
+    }
+}
+
+.product-popup-recommendation__label {
+    margin-bottom: 29px;
+
+    @media screen and (max-width: 1366px) {
+        margin-bottom: 11px;
+    }
+}
+
+.product-popup-img {
+    margin-left: auto;
+    width: 37.5%;
+
+    @media screen and (max-width: 1366px) {
+        width: 30%;
+    }
+
+    @include tablet {
+        width: 37%;
+    }
+
+    @media screen and (max-width: 850px) {
+        width: 100%;
+        order: -1;
+    }
+}
+
+.product-popup-img-responsive {
+    --aspect-ratio: calc(384 / 360);
+
+    img {
+        border-radius: 32px;
+
+        @media screen and (max-width: 1366px) {
+            border-radius: 24px;
+        }
+    }
+}

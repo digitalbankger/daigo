@@ -1,0 +1,122 @@
+.app-message {
+    $line-height: 1.1;
+    min-height: $line-height * 1em;
+    line-height: $line-height;
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: 0;
+}
+
+.input-group {
+    --bg-color: transparent;
+    --color: $dark;
+    --padding-y: 12px;
+    position: relative;
+
+    &.is-error {
+        .app-message {
+            color: $danger;
+        }
+    }
+}
+
+.form-label {
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform: scale(0.75);
+    transform-origin: 0% 50%;
+    display: block;
+    @include responsive-font-size(12px, 16px, 1280px, 1920px);
+}
+
+.floated-labels {
+    position: relative;
+
+    ~ .form-label {
+        transition: transform 0.3s $app-default-easing;
+        pointer-events: none;
+        position: absolute;
+        display: inline-block;
+        top: var(--padding-y);
+        left: 0;
+        will-change: transform;
+        transform: scale(1);
+    }
+
+    &.floated-labels--active {
+        &.input-group .form-label,
+        ~ .form-label {
+            transform: translate3d(0, -100%, 0) scale(0.75);
+        }
+    }
+}
+
+.form-control {
+    width: 100%;
+    padding: var(--padding-y) 0;
+    background-color: var(--bg-color);
+    color: var(--color);
+    letter-spacing: inherit;
+    border: 0;
+    border-bottom: 1px solid $dark;
+    border-radius: 0;
+    @include responsive-font-size(12px, 16px, 1280px, 1920px);
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        background-color: transparent;
+        color: inherit;
+        border-bottom: 1px solid $dark;
+    }
+
+    &:-webkit-autofill {
+        transition: none;
+        caret-color: var(--color);
+        border-color: var(--color);
+
+        &,
+        &:focus,
+        &:active,
+        &:hover {
+            transition: background-color 9999s ease; // суперкостыль, чтобы пофиксить autofill в iOS
+            color: var(--color) !important;
+            -webkit-text-fill-color: var(--color) !important;
+            box-shadow: inset 0 0 0 1000px var(--bg-color) !important;
+        }
+    }
+
+    &::-webkit-credentials-auto-fill-button {
+        visibility: hidden;
+    }
+
+    &::placeholder {
+        opacity: 0.6;
+        color: currentColor;
+    }
+
+    &.is-error {
+        border-color: $danger;
+
+        ~ .app-message {
+            color: $danger;
+        }
+    }
+
+    &:disabled {
+        opacity: $btn-disabled-opacity;
+        cursor: not-allowed;
+
+        ~ * {
+            opacity: $btn-disabled-opacity;
+        }
+    }
+}
+
+input.form-control {
+    height: 40px;
+}

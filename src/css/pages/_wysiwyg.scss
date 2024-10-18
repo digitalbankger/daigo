@@ -1,0 +1,44 @@
+.wysiwyg {
+    p {
+        &:not(:first-child) {
+            margin-top: 1.33em;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1.33em;
+        }
+    }
+
+    img {
+        @extend .img-fluid;
+    }
+
+    a {
+        @extend .link;
+        @extend .link--underlined;
+    }
+
+    h2 {
+        text-transform: none;
+        @include responsive-font-size(24px, 32px, 1280px, 1920px);
+        letter-spacing: -0.065em;
+        font-weight: 700;
+        line-height: 1;
+
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+    }
+
+    ul {
+        @extend .ul;
+
+        &:not(:first-child) {
+            margin-top: 1.33em;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1.33em;
+        }
+    }
+}

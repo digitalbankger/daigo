@@ -1,0 +1,29 @@
+.person {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 390px;
+
+    @media screen and (max-width: 1366px) {
+        gap: 7px;
+        max-width: 341px;
+    }
+}
+
+.person__img {
+    --size: 72px;
+    border-radius: 16px;
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+}
+
+.person__name {
+    &:not(:last-child) {
+        margin-bottom: 6px;
+    }
+}
+
+.person__position {
+    opacity: 0.4;
+}

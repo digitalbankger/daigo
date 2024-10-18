@@ -1,0 +1,21 @@
+:root {
+    --grid-columns: 32;
+    --grid-gap: 0px;
+    --grid-column-width: calc(
+        (100vw - var(--scrollbar-width, 0px)) / var(--grid-columns) -
+            (var(--grid-gap) * ((var(--grid-columns) - 1) / var(--grid-columns)))
+    ); // не трогать :)
+
+    --header-height: 96px;
+    --offset-x: var(--grid-column-width);
+    --mobile-address-bar-height: 75px;
+
+    @media screen and (max-width: 1366px) {
+        --header-height: 88px;
+    }
+
+    @media screen and (max-width: 767px) {
+        --grid-columns: 24;
+        --header-height: 74px;
+    }
+}

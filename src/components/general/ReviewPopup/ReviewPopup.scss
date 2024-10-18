@@ -1,0 +1,78 @@
+.review-popup {
+    .popup-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.review-popup-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 1366px) {
+        gap: 30px;
+        margin-bottom: 27px;
+    }
+}
+
+.hashtags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hashtag {
+    &::before {
+        content: '#';
+    }
+}
+
+.review-person {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 57px;
+
+    @media screen and (max-width: 1366px) {
+        margin-bottom: 50px;
+        gap: 10px;
+    }
+}
+
+.review-person__avatar {
+    --size: 88px;
+    border-radius: 50%;
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+
+    @media screen and (max-width: 1680px) {
+        --size: 65px;
+    }
+
+    @media screen and (max-width: 1366px) {
+        --size: 50px;
+    }
+}
+
+.review-person__name {
+    max-width: 530px;
+}
+
+.review-content {
+    max-width: 726px;
+    @include responsive-font-size(18px, 24px, 1280px, 1920px);
+    line-height: 1.21;
+    font-weight: 700;
+    letter-spacing: -0.065em;
+
+    @media screen and (max-width: 1440px) {
+        max-width: 560px;
+    }
+
+    @include tablet {
+        max-width: 429px;
+    }
+}

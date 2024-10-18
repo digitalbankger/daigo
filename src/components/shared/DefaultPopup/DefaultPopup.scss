@@ -1,0 +1,65 @@
+.default-popup {
+    --padding-x: 60px;
+
+    @media screen and (max-width: 1366px) {
+        --padding-x: 40px;
+    }
+
+    @include tablet {
+        --padding-x: 48px;
+    }
+
+    @include mobile {
+        --padding-x: var(--offset-x);
+    }
+
+    .popup-container {
+        background-color: #fff;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 60px var(--padding-x);
+
+        @media screen and (max-width: 1366px) {
+            padding: 54px var(--padding-x);
+            width: 680px;
+        }
+
+        @include tablet {
+            padding: 39px var(--padding-x);
+        }
+
+        @media screen and (max-width: 850px) {
+            width: 552px;
+        }
+
+        @media screen and (max-width: 767px) {
+            width: 100%;
+        }
+
+        @include mobile {
+            padding: 30px var(--padding-x);
+        }
+    }
+}
+
+.default-popup__close-btn {
+    --size: 28px;
+    @include clickable();
+    background-color: $dark;
+    color: #fff;
+    padding: calc(0.31 * var(--size));
+    position: absolute;
+    z-index: 1;
+    top: 48px;
+    right: var(--padding-x);
+
+    @media screen and (max-width: 1366px) {
+        top: 32px;
+    }
+
+    @include mobile {
+        --size: 22px;
+        top: 16px;
+    }
+}

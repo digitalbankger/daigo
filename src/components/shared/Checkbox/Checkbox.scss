@@ -1,0 +1,95 @@
+.checkbox {
+    padding-left: 24px;
+    position: relative;
+    cursor: pointer;
+    transition: opacity $app-default-duration $app-default-easing;
+    font-weight: 600;
+    font-size: 12px;
+
+    input[type='checkbox'],
+    input[type='radio'] {
+        @extend .visually-hidden;
+
+        &:checked {
+            ~ .checkbox__element {
+                &::before {
+                    opacity: 1;
+                    will-change: transform;
+                }
+            }
+        }
+
+        &:disabled {
+            ~ .checkbox__element,
+            ~ .checkbox__text {
+                opacity: $btn-disabled-opacity;
+            }
+        }
+
+        &:focus-visible {
+            ~ .checkbox__element {
+                outline: 1px solid currentColor;
+                outline-offset: 2px;
+            }
+        }
+
+        &.is-error {
+            ~ .checkbox__element {
+                border-width: 2px;
+                border-color: $danger;
+            }
+        }
+    }
+
+    @include hover {
+        .checkbox__element {
+            border-color: $dark;
+        }
+    }
+}
+
+.checkbox__element {
+    --size: 16px;
+    position: absolute;
+    left: 0;
+    top: 0.57em;
+    transform: translate(0, -50%);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 4px;
+    border: 1px solid $dark;
+    transition: border-color $app-default-duration $app-default-easing;
+
+    input[type='radio'] ~ & {
+        border-radius: 50%;
+
+        &::before {
+            border-radius: 50%;
+            width: 10px;
+            height: 8px;
+            background-color: currentColor;
+            background-image: none;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 11px;
+        height: 9px;
+        border-radius: inherit;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L4.5 8.5L11 1' stroke='%232C2C2C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0;
+        transition: opacity 0.1s ease;
+    }
+}
+
+.checkbox__text {
+    display: block;
+}

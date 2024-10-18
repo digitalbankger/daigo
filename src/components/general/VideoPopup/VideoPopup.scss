@@ -1,0 +1,35 @@
+.video-popup {
+    z-index: 15;
+
+    iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    iframe,
+    .popup-container {
+        height: 46.5vw;
+        width: auto;
+        aspect-ratio: 16 / 9;
+        height: 46.5vw;
+        border-radius: 48px;
+
+        @include tablet {
+            height: auto;
+            max-width: 93.75vw;
+            width: 70vh;
+            border-radius: 24px;
+        }
+
+        @include mobile {
+            width: 92vw;
+            border-radius: 8px;
+        }
+    }
+
+    .default-popup__close-btn {
+        display: none;
+    }
+}

@@ -1,0 +1,419 @@
+.header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+
+    html.no-scroll & {
+        padding-right: var(--scrollbar-width, 0px);
+    }
+
+    &.header--light {
+        color: $dark;
+
+        .btn-light {
+            --btn-color-default: #fff;
+            --btn-color-hover: #{$dark};
+            --btn-color-active: var(--btn-color-default);
+
+            --btn-bg-color-default: #{$dark};
+            --btn-bg-color-hover: transparent;
+            --btn-bg-color-active: var(--btn-bg-color-default);
+
+            --btn-border-color-hover: var(--btn-color-hover);
+            --btn-border-color-active: var(--btn-color-hover);
+        }
+
+        .btn-outline-light {
+            --btn-color-default: #{$dark};
+            --btn-color-hover: #fff;
+            --btn-color-active: var(--btn-color-default);
+
+            --btn-bg-color-default: transparent;
+            --btn-bg-color-hover: #{$dark};
+            --btn-bg-color-active: var(--btn-bg-color-default);
+
+            --btn-border-color-default: #{$dark};
+            --btn-border-color-hover: var(--btn-border-color-default);
+            --btn-border-color-active: var(--btn-border-color-default);
+        }
+    }
+
+    &.header--dark {
+        color: #fff;
+
+        .btn {
+            --btn-outline-color: #fff;
+        }
+    }
+}
+
+.header__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.header-logo-wrapper {
+    display: flex;
+    @include grid-columns(4);
+
+    @include tablet {
+        @include grid-columns(5);
+    }
+
+    @media screen and (max-width: 767px) {
+        width: auto;
+        margin-right: 20px;
+    }
+
+    @media screen and (max-width: 360px) {
+        margin-right: 15px;
+    }
+}
+
+.header-logo {
+    display: block;
+    border-radius: 50px;
+    padding: 10px 15px;
+    background-color: #fff;
+    transition: background-color $app-default-duration $app-default-easing;
+
+    @include hover {
+        background-color: darken(#fff, 10%);
+    }
+
+    @media screen and (max-width: 1366px) {
+        padding: 7px 12px;
+    }
+
+    svg {
+        width: 80px;
+        height: auto;
+
+        @media screen and (max-width: 360px) {
+            width: 60px;
+        }
+    }
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+}
+
+.header__right {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: auto;
+
+    top: 0;
+    right: var(--offset-x);
+
+    @media screen and (max-width: 1366px) {
+        gap: 6px;
+    }
+
+    @include tablet {
+        gap: 10px;
+    }
+}
+
+.header-kit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &:focus-visible {
+        .link {
+            background-size: var(--bg-size-hover);
+        }
+    }
+
+    @include hover {
+        .link {
+            background-size: var(--bg-size-hover);
+        }
+    }
+
+    svg {
+        width: auto;
+        height: 1em;
+
+        [fill]:not([fill='none']) {
+            fill: currentColor;
+        }
+
+        [stroke]:not([stroke='none']) {
+            stroke: currentColor;
+        }
+    }
+}
+
+.header-partner-btn {
+    pointer-events: auto;
+
+    svg {
+        display: none;
+
+        @include mobile {
+            display: block;
+        }
+
+        [fill]:not([fill='none']) {
+            fill: currentColor;
+        }
+
+        [stroke]:not([stroke='none']) {
+            stroke: currentColor;
+        }
+    }
+
+    @include mobile {
+        --btn-padding-x: 22px;
+        --btn-padding-y-top: 16px;
+        --btn-padding-y-bottom: 16px;
+        background-color: #fff;
+        border-width: 1px;
+    }
+
+    @media screen and (max-width: 360px) {
+        --btn-padding-x: 16px;
+    }
+}
+
+.header-partner-btn__text {
+    @include mobile {
+        @include visually-hidden;
+    }
+}
+
+.header__right-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+
+    @include mobile {
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.header-right-tolltip {
+    display: none;
+
+    @include mobile {
+        display: block;
+    }
+}
+
+.header-telegramm-btn {
+    pointer-events: auto;
+    svg {
+        display: none;
+
+        @include mobile {
+            display: block;
+        }
+
+        [fill]:not([fill='none']) {
+            fill: currentColor;
+        }
+
+        [stroke]:not([stroke='none']) {
+            stroke: currentColor;
+        }
+    }
+
+    @include mobile {
+        --btn-padding-x: 22px;
+        --btn-padding-y-top: 16px;
+        --btn-padding-y-bottom: 16px;
+        border-width: 1px;
+    }
+
+    @media screen and (max-width: 360px) {
+        --btn-padding-x: 16px;
+    }
+}
+
+.header-right-tolltip {
+    @include mobile {
+        --btn-padding-x: 22px;
+        --btn-padding-y-top: 16px;
+        --btn-padding-y-bottom: 16px;
+    }
+}
+
+.header__btn-wrapper {
+    @include mobile {
+        width: 64px;
+    }
+}
+
+.header__right-btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    @include mobile {
+        flex-direction: column;
+    }
+}
+
+.header-telegram__btn-link {
+    display: none;
+    opacity: 1;
+    @include mobile {
+        display: block;
+    }
+}
+
+.header-telegram__btn-text {
+    @include mobile {
+        display: none;
+    }
+}
+
+//если тултип закрыт
+
+.header-btn__close {
+    display: none;
+    transition: padding 0.3s ease;
+    background-color: #000;
+    border-width: 1px;
+
+    & svg {
+        width: 15px;
+        height: 15px;
+
+        path {
+            stroke: #fff;
+        }
+    }
+
+    @include mobile {
+        display: block;
+        pointer-events: auto;
+    }
+}
+
+.header__right-wrapper--close {
+    transition: bacground 0.4s cubic-bezier();
+    @include mobile {
+        .header-telegram__icon {
+            display: block;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        .header__right-btn-container {
+            transform: translate(-10%);
+            pointer-events: none;
+            opacity: 0;
+            transition:
+                transform 0.3s ease,
+                opacity 0.5s ease;
+        }
+
+        .header-telegramm-btn {
+            pointer-events: none;
+        }
+
+        .header-partner-btn,
+        .header-telegram__icon {
+            pointer-events: none;
+        }
+
+        .header-btn__close {
+            border-width: 1px;
+            transition:
+                padding 0.3s ease,
+                width 0.3s ease;
+            padding: 14px 21px;
+        }
+    }
+}
+
+//если тултип открыт
+
+.header-plus__icon {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: rotate(45deg);
+
+    & svg {
+        stroke: #fff;
+    }
+}
+
+.header-plus__icon-wrapper {
+    width: 15px;
+    height: 15px;
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.header__right-wrapper--open {
+    @include mobile {
+        .header-btn__close {
+            padding: 14px;
+            background-color: #fff;
+            position: relative;
+
+            & svg path {
+                stroke: #000;
+            }
+        }
+        .header-plus__icon {
+            display: block;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            transform: rotate(45deg);
+            transition: opacity 0.3s ease;
+        }
+        .header-telegram__icon {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background-color: #fff;
+        }
+
+        .header__right-btn-container {
+            transform: translate(0);
+            display: flex;
+            opacity: 1;
+            transition:
+                transform 0.3s ease,
+                opacity 0.5s ease;
+        }
+
+        .header-partner-btn {
+            border-width: 1px;
+            background-color: #fff;
+
+            & svg [stroke]:not([stroke='none']) {
+                stroke: #000;
+            }
+        }
+        .header-telegramm-btn {
+            border-width: 1px;
+            background-color: #fff;
+        }
+    }
+}
